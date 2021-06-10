@@ -1,0 +1,36 @@
+type aPointBreakup {
+    sKey: String
+    sName: String
+    nPoint: Int
+    nScoredPoints: Int
+}
+
+type MatchPlayer {
+    _id: ID!
+    sKey: String
+    iMatchId: ID
+    iTeamId: ID
+    sTeamName: String
+    iPlayerId: ID
+    sImage: String
+    sName: String
+    sTeamKey: String
+    eRole: String
+    nFantasyCredit: Int
+    nScoredPoints: Int
+    nSeasonPoints: Int
+    aPointBreakup: [aPointBreakup]
+    nSetBy: Int
+    nCaptainBy: Int
+    nViceCaptainBy: Int
+    bShow: Boolean
+}
+
+input matchPlayerPagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getMatchPlayer(input: matchPlayerPagination): [MatchPlayer]
+}

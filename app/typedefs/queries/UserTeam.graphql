@@ -1,0 +1,20 @@
+type userTeam {
+    _id: ID!
+    iMatchId: ID
+    iUserId: ID
+    sName: String
+    iCaptainId: ID
+    iViceCaptainId: ID
+    nTotalPoints: Int
+    sHash: String
+    bPointCalculated: Boolean
+}
+
+input userTeamPagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getUserteam(input: userTeamPagination): [userTeam]
+}

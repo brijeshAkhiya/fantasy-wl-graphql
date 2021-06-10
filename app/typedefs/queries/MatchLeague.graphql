@@ -1,0 +1,57 @@
+type aLeaguePrice {
+    nRankFrom: Int
+    nRankTo: Int
+    nPrice: Int
+    eRankType: String
+    sInfo: String
+    sImage: String
+}
+
+type matchLeague {
+    _id: ID!
+    iMatchId: ID
+    iLeagueId: ID
+    iLeagueCatId: ID
+    iFilterCatId: ID
+    sShareLink: String
+    sName: String
+    nMax: Int
+    nMin: Int
+    nPrice: Int
+    nTotalPayout: Int
+    nDeductPercent: Int
+    nBonusUtil: Int
+    aLeaguePrice: [aLeaguePrice]
+    sLeagueCategory: String
+    sFilterCategory: String
+    sPayoutBreakupDesign: String
+    bConfirmLeague: Boolean
+    bMultipleEntry: Boolean
+    bAutoCreate: Boolean
+    bCancelled: Boolean
+    bPoolPrice: Boolean
+    bCopyLeague: Boolean
+    eCategory: String
+    nPosition: Int
+    nLeaguePrice: Int
+    bPriceDone: Boolean
+    nWinnersCount: Int
+    nTeamJoinLimit: Int
+    nJoined: Int
+    iUserId: ID
+    bPrivateLeague: Boolean
+    sFairPlay: String
+    nAdminCommission: Int
+    nCreatorCommission: Int
+    nLoyaltyPoint: Int
+    sShareCode: String
+}
+
+input matchLeaguePagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getMatchLeagues(input: matchLeaguePagination): [matchLeague]
+}

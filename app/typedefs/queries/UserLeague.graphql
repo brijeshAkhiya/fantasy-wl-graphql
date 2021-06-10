@@ -1,0 +1,28 @@
+type userLeague {
+    _id: ID!
+    iUserTeamId: ID
+    iUserId: ID
+    iMatchLeagueId: ID
+    iMatchId: ID
+    nTotalPayout: Int
+    nPoolPrice: Boolean
+    nTotalPoints: Int
+    sPayoutBreakupDesign: String
+    nRank: Int
+    nPrice: Int
+    sUserName: String
+    sProPic: String
+    sTeamName: String
+    sMatchName: String
+    sLeagueName: String
+    ePlatform: String
+}
+
+input userLeaguePagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getUserLeague(input: userLeaguePagination): [userLeague]
+}

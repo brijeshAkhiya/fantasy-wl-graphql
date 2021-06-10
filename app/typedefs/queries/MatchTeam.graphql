@@ -1,0 +1,24 @@
+type aPlayers {
+    iMatchPlayerId: ID!
+    iTeamId: ID!
+    nScoredPoints: Int
+}
+
+type matchTeam {
+    _id: ID!
+    iMatchId: ID!
+    aPlayers: [aPlayers]
+    nTotalPoint: Int
+    nTotalCredit: Int
+    sHash: String
+    eCategory: String
+}
+
+input matchTeamPagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getMatchTeam(input: matchTeamPagination): [matchTeam]
+}

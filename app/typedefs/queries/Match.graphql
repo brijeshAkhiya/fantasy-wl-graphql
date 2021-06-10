@@ -1,0 +1,59 @@
+type match {
+    _id: ID!
+    sKey: String
+    eFormat: String,
+    sName: String
+    sSeasonKey: String
+    sVenue: String
+    eStatus: String
+    dStartDate: String
+    oHomeTeam: oHomeTeam
+    oAwayTeam: oAwayTeam
+    sWinning: String
+    iTossWinnerId: ID
+    eTossWinnerAction: String
+    bMatchOnTop: Boolean
+    eCategory: String
+    sInfo: String
+    aPlayerRole: [aPlayerRole]
+    iSeriesId: ID
+    bDisabled: Boolean
+    bInReview: Boolean
+    eProvider: String
+    bLineupsOut: Boolean
+    sFantasyPost: String
+    sStreamUrl: String
+}
+type oHomeTeam {
+    iTeamId: ID!
+    sKey: String
+    sName: String
+    sShortName: String
+    sImage: String
+    nScore: String
+}
+
+type oAwayTeam {
+    iTeamId: ID!
+    sKey: String
+    sName: String
+    sShortName: String
+    sImage: String
+    nScore: String
+}
+
+type aPlayerRole {
+    sName: String
+    nMax: Int
+    nMin: Int
+}
+
+input matchPagination {
+    nOffset: Int
+    nLimit: Int
+}
+
+extend type Query {
+    getMatches(input: matchPagination): [match]
+    getMatch(id: ID!): match
+}
