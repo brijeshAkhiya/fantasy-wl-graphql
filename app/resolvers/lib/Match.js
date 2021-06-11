@@ -11,7 +11,7 @@ const resolvers = {
         },
         getMatch: async (_, input, { dataSources }) => {
             const result = await dataSources.matchApi.getMatch(input.id);
-            console.log(dataSources.matchApi);
+            console.log(dataSources.matchApi.context);
             return result;
         },
     },
