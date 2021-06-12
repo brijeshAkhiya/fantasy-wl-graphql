@@ -31,6 +31,15 @@ input matchPlayerPagination {
     nLimit: Int
 }
 
+input fieldNameMatchPlayer {
+    value: String
+    nOffset: Int
+    nLimit: Int
+}
+
 extend type Query {
-    getMatchPlayer(input: matchPlayerPagination): [MatchPlayer]
+    getMatchPlayers(input: matchPlayerPagination): [MatchPlayer]
+    getMatchPlayer(id: ID!): MatchPlayer
+    getMatchPlayerByIds(id: [ID!]): [MatchPlayer]
+    getMatchPlayerByFieldName(input: fieldNameMatchPlayer): [MatchPlayer]
 }

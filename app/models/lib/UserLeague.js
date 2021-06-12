@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const userLeagueSchema = new mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const userLeagueSchema = new Schema({
     iUserTeamId: { type: mongoose.Types.ObjectId, ref: 'userteams' },
     iUserId: { type: mongoose.Types.ObjectId, ref: 'users' },
     iMatchLeagueId: { type: mongoose.Types.ObjectId, ref: 'matchleagues' },
@@ -21,6 +23,4 @@ const userLeagueSchema = new mongoose.Schema({
     dCreatedAt: { type: Date, default: Date.now },
 });
 
-const UserLeague = mongoose.model('userleagues', userLeagueSchema);
-
-module.exports = UserLeague;
+module.exports = model('userleagues', userLeagueSchema);

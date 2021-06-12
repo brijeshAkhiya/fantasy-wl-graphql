@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const userTeam = new mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const userTeam = new Schema({
     iMatchId: { type: mongoose.Types.ObjectId, ref: 'matches' },
     iUserId: { type: mongoose.Types.ObjectId, ref: 'users' },
     sName: { type: String, trim: true, required: true },
@@ -13,6 +15,4 @@ const userTeam = new mongoose.Schema({
     dCreatedAt: { type: Date, default: Date.now },
 });
 
-const UserTeam = mongoose.model('userteams', userTeam);
-
-module.exports = UserTeam;
+module.exports = model('userteams', userTeam);

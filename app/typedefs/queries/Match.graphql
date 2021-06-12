@@ -53,7 +53,15 @@ input matchPagination {
     nLimit: Int
 }
 
+input fieldName {
+    value: String
+    nOffset: Int
+    nLimit: Int
+}
+
 extend type Query {
     getMatches(input: matchPagination): [match]
     getMatch(id: ID!): match
+    getMatchesByIds(id: [ID!]): [match]
+    getMatchByFieldName(input: fieldName): [match]
 }

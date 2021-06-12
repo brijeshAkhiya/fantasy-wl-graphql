@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const matchPlayerSchema = new mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const matchPlayerSchema = new Schema({
     sKey: { type: String, trim: true },
     iMatchId: { type: mongoose.Types.ObjectId, ref: 'matches', index: true }, // pak match ni id
     iTeamId: { type: mongoose.Types.ObjectId, ref: 'teams' }, // ind
@@ -29,5 +31,4 @@ const matchPlayerSchema = new mongoose.Schema({
     dCreatedAt: { type: Date, default: Date.now },
 });
 
-const MatchPlayer = mongoose.model('matchplayers', matchPlayerSchema);
-module.exports = MatchPlayer;
+module.exports = model('matchplayers', matchPlayerSchema);

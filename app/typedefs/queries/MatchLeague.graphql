@@ -52,6 +52,15 @@ input matchLeaguePagination {
     nLimit: Int
 }
 
+input fieldNameMatchLeague {
+    value: String
+    nOffset: Int
+    nLimit: Int
+}
+
 extend type Query {
     getMatchLeagues(input: matchLeaguePagination): [matchLeague]
+    getMatchLeague(id: ID!): matchLeague
+    getMatchLeagueByIds(id: [ID!]): [matchLeague]
+    getMatchLeagueByFieldName(input: fieldNameMatchLeague): [matchLeague]
 }

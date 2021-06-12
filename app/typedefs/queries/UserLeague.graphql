@@ -24,5 +24,8 @@ input userLeaguePagination {
 }
 
 extend type Query {
-    getUserLeague(input: userLeaguePagination): [userLeague]
+    getUserLeagues(input: userLeaguePagination): [userLeague]
+    getUserLeague(id: ID!): userLeague
+    getUserLeagueByIds(id: [ID!]): [userLeague]
+    # getUserLeagueByFieldName(input: fieldNameUserLeague): [userLeague]
 }

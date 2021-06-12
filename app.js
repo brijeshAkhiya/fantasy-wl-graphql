@@ -4,8 +4,8 @@ const { applyMiddleware } = require('graphql-middleware');
 const express = require('express');
 const typeDefs = require('./app/typedefs');
 const resolvers = require('./app/resolvers');
-const { Match } = require('./app/models');
-const { MatchDS } = require('./app/datasource');
+const { Match, MatchLeague, MatchPlayer, MatchTeam, UserLeague, UserTeam } = require('./app/models');
+const { MatchDS, MatchLeagueDS, MatchPlayerDS, MatchTeamDS, UserLeagueDS, UserTeamDS } = require('./app/datasource');
 
 const app = express();
 
@@ -28,6 +28,11 @@ const server = new ApolloServer({
     context: ({ req }) => req.headers,
     dataSources: () => ({
         matchApi: new MatchDS(Match),
+        matchLeagueApi: new MatchLeagueDS(MatchLeague),
+        matchPlayerApi: new MatchPlayerDS(MatchPlayer),
+        matchTeamApi: new MatchTeamDS(MatchTeam),
+        userLeagueApi: new UserLeagueDS(UserLeague),
+        userTeamApi: new UserTeamDS(UserTeam),
     }),
 });
 

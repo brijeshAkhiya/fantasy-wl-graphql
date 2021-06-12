@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const matchLeagueSchema = new mongoose.Schema({
+const { Schema, model } = mongoose;
+
+const matchLeagueSchema = new Schema({
     iMatchId: { type: mongoose.Types.ObjectId, ref: 'matches', index: true },
     iLeagueId: { type: mongoose.Types.ObjectId, ref: 'leagues' },
     iLeagueCatId: { type: mongoose.Types.ObjectId, ref: 'leaguecategories' },
@@ -50,6 +52,4 @@ const matchLeagueSchema = new mongoose.Schema({
     dUpdatedAt: { type: Date },
 });
 
-const MatchLeague = mongoose.model('matchleagues', matchLeagueSchema);
-
-module.exports = MatchLeague;
+module.exports = model('matchleagues', matchLeagueSchema);
