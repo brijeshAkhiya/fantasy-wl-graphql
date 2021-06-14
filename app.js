@@ -25,6 +25,8 @@ mongoose
 
 const server = new ApolloServer({
     schema: applyMiddleware(makeExecutableSchema({ typeDefs, resolvers })),
+    introspection: true,
+    playground: true,
     context: ({ req }) => req.headers,
     dataSources: () => ({
         matchApi: new MatchDS(Match),
