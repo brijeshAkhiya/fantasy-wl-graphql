@@ -8,7 +8,7 @@ type aLeaguePrice {
 }
 
 type matchLeague {
-    _id: ID!
+    _id: ID
     iMatchId: ID
     iLeagueId: ID
     iLeagueCatId: ID
@@ -47,20 +47,30 @@ type matchLeague {
     sShareCode: String
 }
 
-input matchLeaguePagination {
+extend type Message {
+    message: String
+}
+
+input getMatchLeagues {
     nOffset: Int
     nLimit: Int
 }
 
-input fieldNameMatchLeague {
+input getMatchLeagueByFieldName  {
     value: String
     nOffset: Int
     nLimit: Int
 }
 
+input getMatchLeague {
+    iMatchId: String!
+    nOffset: Int!
+    nLimit: Int!
+}
+
 extend type Query {
-    getMatchLeagues(input: matchLeaguePagination): [matchLeague]
-    getMatchLeague(id: ID!): matchLeague
+    getMatchLeagues(input: getMatchLeagues): [matchLeague]
+    getMatchLeague(input: getMatchLeague): [matchLeague]
     getMatchLeagueByIds(id: [ID!]): [matchLeague]
-    getMatchLeagueByFieldName(input: fieldNameMatchLeague): [matchLeague]
+    getMatchLeagueByFieldName(input: getMatchLeagueByFieldName): [matchLeague]
 }

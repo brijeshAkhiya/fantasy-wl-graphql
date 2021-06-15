@@ -6,7 +6,7 @@ type aPointBreakup {
 }
 
 type MatchPlayer {
-    _id: ID!
+    _id: ID
     sKey: String
     iMatchId: ID
     iTeamId: ID
@@ -26,20 +26,26 @@ type MatchPlayer {
     bShow: Boolean
 }
 
-input matchPlayerPagination {
+input getMatchPlayers {
     nOffset: Int
     nLimit: Int
 }
 
-input fieldNameMatchPlayer {
+input getMatchPlayerByFieldName {
     value: String
     nOffset: Int
     nLimit: Int
 }
 
+input getMatchPlayer {
+    iMatchId: String!
+    nOffset: Int!
+    nLimit: Int!
+}
+
 extend type Query {
-    getMatchPlayers(input: matchPlayerPagination): [MatchPlayer]
-    getMatchPlayer(id: ID!): MatchPlayer
+    getMatchPlayers(input: getMatchPlayers): [MatchPlayer]
+    getMatchPlayer(input: getMatchPlayer): [MatchPlayer]
     getMatchPlayerByIds(id: [ID!]): [MatchPlayer]
-    getMatchPlayerByFieldName(input: fieldNameMatchPlayer): [MatchPlayer]
+    getMatchPlayerByFieldName(input: getMatchPlayerByFieldName): [MatchPlayer]
 }

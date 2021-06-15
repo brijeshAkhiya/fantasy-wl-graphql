@@ -1,9 +1,13 @@
 const { MongoDataSource } = require('apollo-datasource-mongodb');
+const { ObjectId } = require('mongoose').Types;
 
 class MatchLeagueDS extends MongoDataSource {
-    getMatchLeague(id) {
-        const result = this.findOneById(id);
-        return result;
+    async getMatchLeague(input) {
+        const result = await this.findByFields({ iMatchId: ObjectId(input.iMatchId) });
+        if (result) {
+            return result.splice(input.nOffset * input.nLimit, input.nLimit);
+        }
+        return null;
     }
 
     async getMatchLeaguesByIds(iMatchIds) {

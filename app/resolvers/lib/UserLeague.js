@@ -1,4 +1,5 @@
 /* eslint-disable no-empty-pattern */
+const { ObjectId } = require('mongoose').Types;
 const { UserLeague } = require('../../models');
 
 const resolvers = {
@@ -9,8 +10,11 @@ const resolvers = {
                 .limit(input.nLimit);
             return result;
         },
-        getUserLeague: async (_, input, { dataSources }) => {
-            const result = await dataSources.userLeagueApi.getUserLeague(input.id);
+        getUserLeague: async (_, { input }, { dataSources }) => {
+            // const result = await dataSources.userLeagueApi.getUserLeague(input);
+            const result = await UserLeague.find({ iUserId: ObjectId(input.iUserId) })
+                .skip(input.nOffset * input.nLimit)
+                .limit(input.nLimit);
             return result;
         },
         getUserLeagueByIds: async (_, input, { dataSources }) => {

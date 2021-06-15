@@ -10,14 +10,20 @@ type userTeam {
     bPointCalculated: Boolean
 }
 
-input userTeamPagination {
+input getUserteams {
     nOffset: Int
     nLimit: Int
 }
 
+input getUserTeam {
+    iUserId: String!
+    nOffset: Int!
+    nLimit: Int!
+}
+
 extend type Query {
-    getUserteams(input: userTeamPagination): [userTeam]
-    getUserTeam(id: ID!): userTeam
+    getUserteams(input: getUserteams): [userTeam]
+    getUserTeam(input: getUserTeam): [userTeam]
     getUserTeamByIds(id: [ID!]): [userTeam]
     # getUserLeagueByFieldName(input: fieldNameMatchTeams): [matchTeam]
 }

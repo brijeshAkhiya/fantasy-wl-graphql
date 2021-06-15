@@ -18,14 +18,20 @@ type userLeague {
     ePlatform: String
 }
 
-input userLeaguePagination {
+input getUserLeagues {
     nOffset: Int
     nLimit: Int
 }
 
+input getUserLeague {
+    iUserId: String!
+    nOffset: Int!
+    nLimit: Int!
+}
+
 extend type Query {
-    getUserLeagues(input: userLeaguePagination): [userLeague]
-    getUserLeague(id: ID!): userLeague
+    getUserLeagues(input: getUserLeagues): [userLeague]
+    getUserLeague(input: getUserLeague): [userLeague]
     getUserLeagueByIds(id: [ID!]): [userLeague]
     # getUserLeagueByFieldName(input: fieldNameUserLeague): [userLeague]
 }

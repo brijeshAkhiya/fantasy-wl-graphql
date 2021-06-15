@@ -1,4 +1,5 @@
 /* eslint-disable no-empty-pattern */
+const { ObjectId } = require('mongoose').Types;
 const { MatchTeam } = require('../../models');
 
 const resolvers = {
@@ -9,8 +10,11 @@ const resolvers = {
                 .limit(input.nLimit);
             return result;
         },
-        getMatchTeam: async (_, input, { dataSources }) => {
-            const result = await dataSources.matchTeamApi.getMatchTeam(input.id);
+        getMatchTeam: async (_, { input }, { dataSources }) => {
+            // const result = await dataSources.matchTeamApi.getMatchTeam(input);
+            const result = await MatchTeam.find({ iMatchId: ObjectId(input.iMatchId) })
+                .skip(input.nOffset * input.nLimit)
+                .limit(input.nLimit);
             return result;
         },
         getMatchTeamByIds: async (_, input, { dataSources }) => {

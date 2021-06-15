@@ -11,6 +11,9 @@ const typeDefs = gql`
     type Query {
         _dummy: String
     }
+    type Message {
+        _dummy: String
+    }
     ${match}
     ${matchLeague}
     ${matchPlayer}
