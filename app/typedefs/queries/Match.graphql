@@ -61,7 +61,7 @@ input fieldName {
 
 extend type Query {
     getMatches(input: matchPagination): [match]
-    getMatch(id: ID!): match
-    getMatchesByIds(id: [ID!]): [match]
-    getMatchByFieldName(input: fieldName): [match]
+    getMatch(_id: ID!): match
+    # getMatchesByIds(id: [ID!]): [match]
+    # getMatchByFieldName(input: fieldName): [match]
 }

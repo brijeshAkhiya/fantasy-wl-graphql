@@ -11,19 +11,16 @@ type userTeam {
 }
 
 input getUserteams {
+    iMatchId: ID!
+    # iUserId: ID! // iUserId leva nu che aaia token ma thi.
     nOffset: Int
     nLimit: Int
 }
 
-input getUserTeam {
-    iUserId: String!
-    nOffset: Int!
-    nLimit: Int!
-}
 
 extend type Query {
     getUserteams(input: getUserteams): [userTeam]
-    getUserTeam(input: getUserTeam): [userTeam]
-    getUserTeamByIds(id: [ID!]): [userTeam]
+    getUserTeam(_id: ID!): userTeam
+    # getUserTeamByIds(id: [ID!]): [userTeam]
     # getUserLeagueByFieldName(input: fieldNameMatchTeams): [matchTeam]
 }

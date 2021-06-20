@@ -4,6 +4,7 @@ const MatchPlayer = require('./lib/MatchPlayer.js');
 const MatchTeam = require('./lib/MatchTeam.js');
 const UserLeague = require('./lib/UserLeague.js');
 const UserTeam = require('./lib/UserTeam.js');
+const User = require('./lib/User');
 
 module.exports = {
     Match,
@@ -12,4 +13,5 @@ module.exports = {
     MatchTeam,
     UserLeague,
     UserTeam,
+    User,
 };

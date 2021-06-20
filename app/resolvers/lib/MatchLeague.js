@@ -11,23 +11,21 @@ const resolvers = {
                 .limit(input.nLimit);
             return result;
         },
-        getMatchLeague: async (_, { input }, { dataSources }) => {
+        getMatchLeague: async (_, input, { dataSources }) => {
             // const result = await dataSources.matchLeagueApi.getMatchLeague(input);
-            const result = await MatchLeague.find({ iMatchId: ObjectId(input.iMatchId) })
-                .skip(input.nOffset * input.nLimit)
-                .limit(input.nLimit);
+            const result = await MatchLeague.findOne({ _id: ObjectId(input._id) });
             return result;
         },
-        getMatchLeagueByIds: async (_, input, { dataSources }) => {
-            const result = await dataSources.matchLeagueApi.getMatchLeaguesByIds(input.id);
-            return result;
-        },
-        getMatchLeagueByFieldName: async (_, { input }, {}) => {
-            const result = await MatchLeague.find({ eCategory: input.value })
-                .skip(input.nOffset * input.nLimit)
-                .limit(input.nLimit);
-            return result;
-        },
+        // getMatchLeagueByIds: async (_, input, { dataSources }) => {
+        //     const result = await dataSources.matchLeagueApi.getMatchLeaguesByIds(input.id);
+        //     return result;
+        // },
+        // getMatchLeagueByFieldName: async (_, { input }, {}) => {
+        //     const result = await MatchLeague.find({ eCategory: input.value })
+        //         .skip(input.nOffset * input.nLimit)
+        //         .limit(input.nLimit);
+        //     return result;
+        // },
     },
 };
 

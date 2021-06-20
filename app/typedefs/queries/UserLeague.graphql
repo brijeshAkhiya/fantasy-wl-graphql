@@ -19,19 +19,18 @@ type userLeague {
 }
 
 input getUserLeagues {
-    nOffset: Int
-    nLimit: Int
-}
-
-input getUserLeague {
-    iUserId: String!
+    # iUserId: ID! // iUserId leva nu che aaia token ma thi.
+    iMatchId: ID!
+    iMatchLeagueId: ID!
+    iUserTeamId: ID!
     nOffset: Int!
     nLimit: Int!
 }
 
+
 extend type Query {
     getUserLeagues(input: getUserLeagues): [userLeague]
-    getUserLeague(input: getUserLeague): [userLeague]
-    getUserLeagueByIds(id: [ID!]): [userLeague]
+    getUserLeague(_id: ID!): userLeague
+    # getUserLeagueByIds(id: [ID!]): [userLeague]
     # getUserLeagueByFieldName(input: fieldNameUserLeague): [userLeague]
 }

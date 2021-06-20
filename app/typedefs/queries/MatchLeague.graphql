@@ -52,8 +52,9 @@ extend type Message {
 }
 
 input getMatchLeagues {
-    nOffset: Int
-    nLimit: Int
+    iMatchId: ID!
+    nOffset: Int!
+    nLimit: Int!
 }
 
 input getMatchLeagueByFieldName  {
@@ -62,15 +63,10 @@ input getMatchLeagueByFieldName  {
     nLimit: Int
 }
 
-input getMatchLeague {
-    iMatchId: String!
-    nOffset: Int!
-    nLimit: Int!
-}
 
 extend type Query {
     getMatchLeagues(input: getMatchLeagues): [matchLeague]
-    getMatchLeague(input: getMatchLeague): [matchLeague]
-    getMatchLeagueByIds(id: [ID!]): [matchLeague]
-    getMatchLeagueByFieldName(input: getMatchLeagueByFieldName): [matchLeague]
+    getMatchLeague(_id: ID!): matchLeague
+    # getMatchLeagueByIds(id: [ID!]): [matchLeague]
+    # getMatchLeagueByFieldName(input: getMatchLeagueByFieldName): [matchLeague]
 }

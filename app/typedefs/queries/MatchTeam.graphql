@@ -15,8 +15,9 @@ type matchTeam {
 }
 
 input getMatchTeams {
-    nOffset: Int
-    nLimit: Int
+    iMatchId: ID!
+    nOffset: Int!
+    nLimit: Int!
 }
 
 input getMatchTeamByFieldName {
@@ -33,7 +34,7 @@ input getMatchTeam {
 
 extend type Query {
     getMatchTeams(input: getMatchTeams): [matchTeam]
-    getMatchTeam(input: getMatchTeam): [matchTeam]
-    getMatchTeamByIds(id: [ID!]): [matchTeam]
-    getMatchTeamByFieldName(input: getMatchTeamByFieldName): [matchTeam]
+    getMatchTeam(input: getMatchTeam): matchTeam
+    # getMatchTeamByIds(id: [ID!]): [matchTeam]
+    # getMatchTeamByFieldName(input: getMatchTeamByFieldName): [matchTeam]
 }

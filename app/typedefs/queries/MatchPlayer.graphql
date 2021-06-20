@@ -27,8 +27,9 @@ type MatchPlayer {
 }
 
 input getMatchPlayers {
-    nOffset: Int
-    nLimit: Int
+    iMatchId: ID!
+    nOffset: Int!
+    nLimit: Int!
 }
 
 input getMatchPlayerByFieldName {
@@ -37,15 +38,10 @@ input getMatchPlayerByFieldName {
     nLimit: Int
 }
 
-input getMatchPlayer {
-    iMatchId: String!
-    nOffset: Int!
-    nLimit: Int!
-}
 
 extend type Query {
     getMatchPlayers(input: getMatchPlayers): [MatchPlayer]
-    getMatchPlayer(input: getMatchPlayer): [MatchPlayer]
-    getMatchPlayerByIds(id: [ID!]): [MatchPlayer]
-    getMatchPlayerByFieldName(input: getMatchPlayerByFieldName): [MatchPlayer]
+    getMatchPlayer(_id: ID!): MatchPlayer
+    # getMatchPlayerByIds(id: [ID!]): [MatchPlayer]
+    # getMatchPlayerByFieldName(input: getMatchPlayerByFieldName): [MatchPlayer]
 }
