@@ -4,12 +4,12 @@ type userLeague {
     iUserId: ID
     iMatchLeagueId: ID
     iMatchId: ID
-    nTotalPayout: Int
+    nTotalPayout: Float
     nPoolPrice: Boolean
-    nTotalPoints: Int
+    nTotalPoFloats: Float
     sPayoutBreakupDesign: String
-    nRank: Int
-    nPrice: Int
+    nRank: Float
+    nPrice: Float
     sUserName: String
     sProPic: String
     sTeamName: String
@@ -23,8 +23,8 @@ input getUserLeagues {
     iMatchId: ID!
     iMatchLeagueId: ID!
     iUserTeamId: ID!
-    nOffset: Int!
-    nLimit: Int!
+    nOffset: Float!
+    nLimit: Float!
 }
 
 

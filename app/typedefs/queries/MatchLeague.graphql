@@ -1,7 +1,7 @@
 type aLeaguePrice {
-    nRankFrom: Int
-    nRankTo: Int
-    nPrice: Int
+    nRankFrom: Float
+    nRankTo: Float
+    nPrice: Float
     eRankType: String
     sInfo: String
     sImage: String
@@ -15,12 +15,12 @@ type matchLeague {
     iFilterCatId: ID
     sShareLink: String
     sName: String
-    nMax: Int
-    nMin: Int
-    nPrice: Int
-    nTotalPayout: Int
-    nDeductPercent: Int
-    nBonusUtil: Int
+    nMax: Float
+    nMin: Float
+    nPrice: Float
+    nTotalPayout: Float
+    nDeductPercent: Float
+    nBonusUtil: Float
     aLeaguePrice: [aLeaguePrice]
     sLeagueCategory: String
     sFilterCategory: String
@@ -32,18 +32,18 @@ type matchLeague {
     bPoolPrice: Boolean
     bCopyLeague: Boolean
     eCategory: String
-    nPosition: Int
-    nLeaguePrice: Int
+    nPosition: Float
+    nLeaguePrice: Float
     bPriceDone: Boolean
-    nWinnersCount: Int
-    nTeamJoinLimit: Int
-    nJoined: Int
+    nWinnersCount: Float
+    nTeamJoinLimit: Float
+    nJoined: Float
     iUserId: ID
     bPrivateLeague: Boolean
     sFairPlay: String
-    nAdminCommission: Int
-    nCreatorCommission: Int
-    nLoyaltyPoint: Int
+    nAdminCommission: Float
+    nCreatorCommission: Float
+    nLoyaltyPoFloat: Float
     sShareCode: String
 }
 
@@ -53,14 +53,14 @@ extend type Message {
 
 input getMatchLeagues {
     iMatchId: ID!
-    nOffset: Int!
-    nLimit: Int!
+    nOffset: Float!
+    nLimit: Float!
 }
 
 input getMatchLeagueByFieldName  {
     value: String
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 

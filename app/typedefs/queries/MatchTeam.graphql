@@ -1,35 +1,35 @@
 type aPlayers {
     iMatchPlayerId: ID!
     iTeamId: ID!
-    nScoredPoints: Int
+    nScoredPoFloats: Float
 }
 
 type matchTeam {
     _id: ID!
     iMatchId: ID!
     aPlayers: [aPlayers]
-    nTotalPoint: Int
-    nTotalCredit: Int
+    nTotalPoFloat: Float
+    nTotalCredit: Float
     sHash: String
     eCategory: String
 }
 
 input getMatchTeams {
     iMatchId: ID!
-    nOffset: Int!
-    nLimit: Int!
+    nOffset: Float!
+    nLimit: Float!
 }
 
 input getMatchTeamByFieldName {
     value: String
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 input getMatchTeam {
     iMatchId: String!
-    nOffset: Int!
-    nLimit: Int!
+    nOffset: Float!
+    nLimit: Float!
 }
 
 extend type Query {

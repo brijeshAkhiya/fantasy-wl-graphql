@@ -1,8 +1,8 @@
-type aPointBreakup {
+type aPoFloatBreakup {
     sKey: String
     sName: String
-    nPoint: Int
-    nScoredPoints: Int
+    nPoFloat: Float
+    nScoredPoFloats: Float
 }
 
 type MatchPlayer {
@@ -16,26 +16,26 @@ type MatchPlayer {
     sName: String
     sTeamKey: String
     eRole: String
-    nFantasyCredit: Int
-    nScoredPoints: Int
-    nSeasonPoints: Int
-    aPointBreakup: [aPointBreakup]
-    nSetBy: Int
-    nCaptainBy: Int
-    nViceCaptainBy: Int
+    nFantasyCredit: Float
+    nScoredPoFloats: Float
+    nSeasonPoFloats: Float
+    aPoFloatBreakup: [aPoFloatBreakup]
+    nSetBy: Float
+    nCaptainBy: Float
+    nViceCaptainBy: Float
     bShow: Boolean
 }
 
 input getMatchPlayers {
     iMatchId: ID!
-    nOffset: Int!
-    nLimit: Int!
+    nOffset: Float!
+    nLimit: Float!
 }
 
 input getMatchPlayerByFieldName {
     value: String
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 

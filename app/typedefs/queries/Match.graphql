@@ -44,19 +44,19 @@ type oAwayTeam {
 
 type aPlayerRole {
     sName: String
-    nMax: Int
-    nMin: Int
+    nMax: Float
+    nMin: Float
 }
 
 input matchPagination {
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 input fieldName {
     value: String
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 extend type Query {

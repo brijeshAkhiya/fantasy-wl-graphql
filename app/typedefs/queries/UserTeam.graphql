@@ -5,16 +5,16 @@ type userTeam {
     sName: String
     iCaptainId: ID
     iViceCaptainId: ID
-    nTotalPoints: Int
+    nTotalPoFloats: Float
     sHash: String
-    bPointCalculated: Boolean
+    bPoFloatCalculated: Boolean
 }
 
 input getUserteams {
     iMatchId: ID!
     # iUserId: ID! // iUserId leva nu che aaia token ma thi.
-    nOffset: Int
-    nLimit: Int
+    nOffset: Float
+    nLimit: Float
 }
 
 
