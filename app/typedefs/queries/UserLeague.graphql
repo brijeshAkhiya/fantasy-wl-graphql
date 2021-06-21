@@ -19,7 +19,6 @@ type userLeague {
 }
 
 input getUserLeagues {
-    # iUserId: ID! // iUserId leva nu che aaia token ma thi.
     iMatchId: ID!
     iMatchLeagueId: ID!
     iUserTeamId: ID!

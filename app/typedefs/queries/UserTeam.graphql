@@ -19,7 +19,7 @@ input getUserteams {
 
 
 extend type Query {
-    getUserteams(input: getUserteams): [userTeam]
+    getUserTeams(input: getUserteams): [userTeam]
     getUserTeam(_id: ID!): userTeam
     # getUserTeamByIds(id: [ID!]): [userTeam]
     # getUserLeagueByFieldName(input: fieldNameMatchTeams): [matchTeam]

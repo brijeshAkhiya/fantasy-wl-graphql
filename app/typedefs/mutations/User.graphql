@@ -1,0 +1,8 @@
+input userLogin {
+    sMobNumber: String
+    sPassword: String
+}
+
+extend type Mutation {
+    userLogin(input: userLogin): String
+}

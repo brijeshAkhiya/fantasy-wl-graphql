@@ -1,0 +1,8 @@
+type getApiTrigger {
+    sApiName: String
+    calledBy: String
+}
+
+type Subscription {
+    getApiTrigger: getApiTrigger
+}
